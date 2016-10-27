@@ -66,6 +66,7 @@ function IsPrime(N)
 
 // return text prime factorization
 // return -1 if input N is non positive integer or N<2
+// report repeated prime as exponent
 // (c) 2010-2016 Kardi Teknomo all rights reserved
 // http://people.revoledu.com/kardi/
 function PrimeFactorization(N)
@@ -169,7 +170,6 @@ function PrimeFactorization0(N)
 
 // return array contain list of divisors
 // return -1 if input N is non positive integer
-// note: more efficient algorithm
 // (c) 2010-2016 Kardi Teknomo all rights reserved
 // http://people.revoledu.com/kardi/
 function FindDivisors(N)
@@ -213,65 +213,6 @@ function FindDivisors(N)
 		return false;
 	}
 }
-
-
-// return array contain list of divisors
-// return -1 if input N is non positive integer
-// note: inefficient algorithm
-// (c) 2010-2016 Kardi Teknomo all rights reserved
-// http://people.revoledu.com/kardi/
-function FindDivisorsInefficient(N)
-{
-	N=parseInt(N);
-	if(isPosInteger(N) & N<MAXLIMIT)
-	{
-		var arr= new Array();
-		i = 0;
-		for(var k = 1; k<= N; k++)
-		{
-			if(N % k==0)
-			{
-				arr[i]= k;
-				i++;
-			}
-		}
-		return arr;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-// convert content of array into text
-// (c) 2010-2016 Kardi Teknomo all rights reserved
-// http://people.revoledu.com/kardi/
-function PrintArray(arr)
-{
-	var txt="";
-	for(var i=0;i<arr.length-1; i++)
-	{
-		txt += arr[i] + ",";
-	}
-	txt += arr[arr.length-1];
-	return txt;
-}
-
-
-// general purpose function to see if a suspected numeric input
-// is a positive integer
-// taken from JavaScript™ Bible 5th Edition by Danny Goodman and Michael Morrison
-function isPosInteger(inputVal) {
-	inputStr = inputVal.toString();
-	for (var i = 0; i < inputStr.length; i++) {
-		var oneChar = inputStr.charAt(i);
-		if (oneChar < "0" || oneChar > "9") {
-			return false;
-		}
-	}
-	return true;
-}
-
 
 // general purpose function to return Boolean true if n is divisible by d
 // e.g. IsDivisible(22,4) = false
@@ -378,35 +319,6 @@ function IntLinearEquation(a,b)
 	return Array(g,x,y);
 }
 
-// return -1 if no solution
-// still incorrect!!!!!!!!!!!!!
-function IntIntegerLinearCongruentEquation(a,b,m)
-{
-	var g1=gcd(a,m);
-	if(IsDivisible(g1,b))
-	{
-		return false;   //no solution
-	}
-	else
-	{
-		arr=IntLinearEquation(a,m);
-		alert(arr);
-		g=arr[0];
-		x=arr[1];
-		y=arr[2];
-		x0=b*x/g;
-		alert(x0);
-		var arrSolution=new Array();
-		for(var k=0; k<g; k++)
-		{
-			arrSolution[k]=x0+(k*m/g);
-		}
-		alert(arrSolution);
-		return arrSolution;
-	}
-}
-
-
 function LinearDiophantineEquation(a,b,c)
 {
 	var g=gcd(a,b);
@@ -427,13 +339,20 @@ function LinearDiophantineEquation(a,b,c)
 		x0=b*x/g;
 		alert(x0);
 		return x0;
-		//
-		/*var arrSolution=new Array();
-		for(var k=0; k<g; k++)
-		{
-			arrSolution[k]=x0+(k*c/g);
-		}
-		alert(arrSolution);
-		return arrSolution; */
 	}
+}
+
+
+// general purpose function to see if a suspected numeric input
+// is a positive integer
+// taken from JavaScript™ Bible 5th Edition by Danny Goodman and Michael Morrison
+function isPosInteger(inputVal) {
+	inputStr = inputVal.toString();
+	for (var i = 0; i < inputStr.length; i++) {
+		var oneChar = inputStr.charAt(i);
+		if (oneChar < "0" || oneChar > "9") {
+			return false;
+		}
+	}
+	return true;
 }
