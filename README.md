@@ -51,7 +51,7 @@
   <p>return the solution of Linear Diophantine Equation ax + by = c where a, b, c, x and y are integers<br />
   e.g. 5x-13y=4 ==&gt; -13<br />
 </p>
-<p>isPosInteger(inputVal)<br />
+<h3>isPosInteger(inputVal)</h3>
   <p>General purpose function to see if a suspected numeric input is a positive integer<br />
   Taken from JavaScript™ Bible 5th Edition by Danny Goodman and Michael Morrison<br />
 </p>
