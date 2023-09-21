@@ -1,6 +1,6 @@
 # prime
 <h1>Prime.JS - JavaScript Number Theory Library</h1>
-<p>(c) 2010-2016 Kardi Teknomo all rights reserved<br />
+<p>(c) 2010-2023 Kardi Teknomo all rights reserved<br />
   <a href="http://people.revoledu.com/kardi/">http://people.revoledu.com/kardi/</a></p>
 <p>See the demonstration of prime.js in <br />
   <a href="http://people.revoledu.com/kardi/tutorial/BasicMath/Prime/index.html">http://people.revoledu.com/kardi/tutorial/BasicMath/Prime/index.html</a></p>
